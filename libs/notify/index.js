@@ -1,6 +1,6 @@
 import request from '../request';
 
-export default async (
+export const sendNotify = async (
   { discord: { webhook_url, username, avatar, footertext, footericon } },
   metadata
 ) => {
@@ -30,6 +30,33 @@ export default async (
           image: {
             url: metadata.post.displayUrl
           },
+          footer: {
+            text: footertext !== '' ? footertext : 'Custom Instagram Monitor v1',
+            icon_url: footericon !== '' ? footericon : null
+          }
+        }
+      ]
+    }
+  };
+
+  await request(options);
+};
+
+export const sendOcr = async (
+  { discord: { webhook_url, username, avatar, footertext, footericon } },
+  text
+) => {
+  const options = {
+    uri: webhook_url,
+    method: 'POST',
+    json: true,
+    body: {
+      username,
+      avatar_url: avatar !== '' ? avatar : null,
+      embeds: [
+        {
+          color: 15258703,
+          description: text,
           footer: {
             text: footertext !== '' ? footertext : 'Custom Instagram Monitor v1',
             icon_url: footericon !== '' ? footericon : null
