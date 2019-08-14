@@ -172,12 +172,17 @@ export const scrapeUserData = async body => {
 };
 
 /**
+ * query_hash: 30a89afdd826d78a5376008a7b81c205
+variables: {"reel_ids":["42792406"],"tag_names":[],"location_ids":[],"highlight_reel_ids":[],"precomposed_overlay":false,"show_story_viewer_list":true,"story_viewer_fetch_count":50,"story_viewer_cursor":"","stories_video_dash_manifest":false}
+ */
+
+/**
  *
  * @param {object} post - Post object
  * @returns {Boolean} Returns if the post is a video or not!
  */
 export const checkPostIfVideo = async post => {
-  if (post.isVideo) {
+  if (post['is_video']) {
     return Promise.resolve(true);
   } else {
     return Promise.resolve(false);

@@ -10,6 +10,5 @@ module.exports = async image => {
   if (text) {
     await sendOcr(config, text);
     await worker.terminate();
-    return;
   }
 };

@@ -58,7 +58,7 @@ export const sendOcr = async (
           color: 15258703,
           description: text,
           footer: {
-            text: footertext !== '' ? footertext : 'Custom Instagram Monitor v1',
+            text: footertext !== '' ? footertext : 'OCR Reader',
             icon_url: footericon !== '' ? footericon : null
           }
         }

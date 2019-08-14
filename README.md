@@ -35,7 +35,6 @@ Features:
 
 # Ability to monitor any instagram accounts ✅
 # Able scrape posts & stories ✅
-# Notification pinger ❌
 # OCR reader ✅
 
 ```
@@ -45,16 +44,15 @@ Features:
 - [x] Ability to monitor any instagram accounts
 - [x] Able scrape stories & posts (stories not implemented, but soon...)
 - [x] Customizable Discord Embeds
-- [ ] Notification pinger (soon...)
 - [x] OCR reader
-- [ ] Keyword Matcher
+- [ ] Keyword filter
 - [ ] Database Configuration
+- [ ] Better way to rotate proxies
 
 ## Tips
 
 - Running with an actual Instagram Account, will greatly reduced the chance of rate limiting...
-- Please run high delays because of instagram rate limit. Setting delays 5000 seems to work...
-- I ran 4500+ without proxies, and it's running smooth. But I still recommend running proxies.
+- I ran 5000+ without proxies, and it's running smooth. But I still recommend running proxies.
 - If you are planning monitor more accounts, increase your delay.
 
 ## Bugs?
