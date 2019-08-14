@@ -1,18 +1,13 @@
 import fs from 'fs';
 import dotenv from 'dotenv';
 
-import {
-  scrapeAllUser,
-  scrapeUserPost,
-  scrapeUserData,
-  checkPostIfVideo,
-  loginUser
-} from './libs/api';
+import { scrapeAllUser, scrapeUserData, loginUser } from './libs/api';
 import { formatProxy, getRandomProxy } from './libs/proxy';
-import notify from './libs/notify';
+import { sendNotify } from './libs/notify';
 import config from './config/config.json';
 import logger from './libs/logger';
 import sleep from './utils/sleep';
+import ocrReader from './utils/ocr';
 
 dotenv.config();
 // Upload post id to array
@@ -67,7 +62,12 @@ let ids = [];
           ids = [...ids, ...newIds];
 
           // notify user webhook
-          await notify(config, newPost[0]);
+          await sendNotify(config, newPost[0]);
+
+          // check if image exist
+          if (newPost[0].post.displayUrl) {
+            await ocrReader(newPost[0].post.displayUrl);
+          }
 
           logger('success', 'Sent notification!');
         }

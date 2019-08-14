@@ -36,7 +36,7 @@ Features:
 # Ability to monitor any instagram accounts ✅
 # Able scrape posts & stories ✅
 # Notification pinger ❌
-# OCR reader ❌
+# OCR reader ✅
 
 ```
 
@@ -46,7 +46,7 @@ Features:
 - [x] Able scrape stories & posts (stories not implemented, but soon...)
 - [x] Customizable Discord Embeds
 - [ ] Notification pinger (soon...)
-- [ ] OCR reader (soon...)
+- [x] OCR reader
 - [ ] Keyword Matcher
 - [ ] Database Configuration
 
@@ -57,13 +57,13 @@ Features:
 - I ran 4500+ without proxies, and it's running smooth. But I still recommend running proxies.
 - If you are planning monitor more accounts, increase your delay.
 
-## DISCLAIMER
-
-- Please do not abuse this script, any abused from this script will result in banned by Instagram. This is meant for only to be used for educational purpose.
-
-Bugs?
+## Bugs?
 
 Feel free to make an issue about any particular errors or bugs such as internal functionality bugs.
+
+## DISCLAIMER
+
+Please do not abuse this script, any abused from this script will result in banned by Instagram. This is meant for only to be used for educational purpose.
 
 ## App Info
 

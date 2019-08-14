@@ -18,7 +18,7 @@
     "mongoose": "^5.6.5",
     "request": "^2.88.0",
     "request-promise": "^4.2.4",
-    "tesseractocr": "^1.2.1"
+    "tesseract.js": "^2.0.0-alpha.13"
   },
   "devDependencies": {
     "@babel/cli": "^7.5.5",
