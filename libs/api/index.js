@@ -1,7 +1,4 @@
 import request from '../request';
-import cheerio from 'cheerio';
-import sleep from '../../utils/sleep';
-import logger from '../logger';
 
 /**
  *
@@ -61,20 +58,11 @@ export const getCsrfToken = async () => {
   }
 };
 
-/**
- *
- * @param {array} users - Required an array of users
- * @param {String} proxy - Does not required a proxy, but recommeneded
- */
-export const scrapeAllUser = async (users, proxy) => {
-  const data = [];
-
-  if (users.length === 0) return Promise.reject('Please add some account you wished to monitor!');
-
-  for (let i = 0; i < users.length; i++) {
+export const scrapeUser = async (user, proxy) => {
+  try {
     const options = {
-      uri: `https://www.instagram.com/${users[i]}/`,
-      proxy: proxy !== null ? proxy : null,
+      uri: `https://www.instagram.com/${user}/`,
+      proxy,
       headers: {
         Connection: 'keep-alive',
         'accept-language': 'en-US,en;q=0.9',
@@ -91,44 +79,16 @@ export const scrapeAllUser = async (users, proxy) => {
     );
 
     if (resp.statusCode !== 200) {
-      logger('error', 'Rate limit exceeded!');
+      console.log('Rate limit exceeded!');
 
       return false;
     }
 
-    data.push(jsonObject['entry_data']['ProfilePage'][0].graphql.user);
+    return jsonObject['entry_data']['ProfilePage'][0].graphql.user;
+  } catch (e) {
+    console.log('Proxy timeout!');
+    return false;
   }
-
-  return data;
-};
-
-/**
- * @param {array} body - Must be an array of response body's
- * @returns {posts} - returns posts
- */
-export const scrapeUserPost = async body => {
-  const userPost = [];
-
-  for (let i = 0; i < body.length; i++) {
-    const {
-      edge_owner_to_timeline_media: { edges }
-    } = body[i];
-
-    for (let j = 0; j < edges.length; j++) {
-      const node = edges[j].node;
-
-      userPost.push({
-        postID: node.shortcode,
-        displayUrl: node.display_url,
-        text: node.edge_media_to_caption.edges[0].node.text,
-        isVideo: node.is_video,
-        timestamp: node.taken_at_timestamp,
-        owner: node.owner
-      });
-    }
-  }
-
-  return userPost;
 };
 
 /**
@@ -138,33 +98,29 @@ export const scrapeUserPost = async body => {
 export const scrapeUserData = async body => {
   const data = [];
 
-  for (let i = 0; i < body.length; i++) {
-    const node = body[i];
+  // get user data
+  const userDetail = {
+    userID: body.id,
+    userName: body.username,
+    fullName: body.full_name,
+    imageUrl: body.profile_pic_url_hd
+  };
 
-    // get user data
-    const userDetail = {
-      userID: node.id,
-      userName: node.username,
-      fullName: node.full_name,
-      imageUrl: node.profile_pic_url_hd
-    };
+  for (let i = 0; i < body.edge_owner_to_timeline_media.edges.length; i++) {
+    const node = body.edge_owner_to_timeline_media.edges[i].node;
 
-    for (let j = 0; j < body[i].edge_owner_to_timeline_media.edges.length; j++) {
-      const node = body[i].edge_owner_to_timeline_media.edges[j].node;
-
-      if (node.owner.id === userDetail.userID) {
-        data.push({
-          ...userDetail,
-          post: {
-            postID: node.shortcode,
-            displayUrl: node.display_url,
-            text: node.edge_media_to_caption.edges[0].node.text,
-            isVideo: node.is_video,
-            timestamp: node.taken_at_timestamp,
-            owner: node.owner
-          }
-        });
-      }
+    if (node.owner.id === userDetail.userID) {
+      data.push({
+        ...userDetail,
+        post: {
+          postID: node.shortcode,
+          displayUrl: node.display_url,
+          text: node.edge_media_to_caption.edges[0].node.text,
+          isVideo: node.is_video,
+          timestamp: node.taken_at_timestamp,
+          owner: node.owner
+        }
+      });
     }
   }
 
