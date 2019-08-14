@@ -20,6 +20,8 @@ export default async options => {
   }
 
   const settings = {
+    ...options,
+    proxy: options.proxy,
     uri: options.uri,
     method: options.method,
     json: options.json,
