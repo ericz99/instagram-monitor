@@ -18,7 +18,19 @@ yarn install
 yarn run start
 
 # Add stuff in your config.json
-please leave mongoURI as the same, and configurate your own settings
+{
+    "mongoUri": "mongodb://localhost/ig-monitor-db",
+    "discord": {
+        "webhook_url": "<Your webhook>",
+        "username": "Instagram Monitor",
+        "avatar": "",
+        "footertext": "",
+        "footericon": ""
+    },
+    "pollMS": 5000,
+    "accounts": ["cybersole", "destroyerbots", "testzhi", "offspringhq", "cncpts"],
+    "keywords": ["restock", "*"]
+}
 
 ```
 
@@ -45,15 +57,20 @@ Features:
 - [x] Able scrape stories & posts (stories not implemented, but soon...)
 - [x] Customizable Discord Embeds
 - [x] OCR reader
+- [x] Better way to rotate proxies
 - [ ] Keyword filter
 - [ ] Database Configuration
-- [ ] Better way to rotate proxies
+- [x] Add more error handling
 
 ## Tips
 
+- I HIGHLY RECOMMEND RUNNING RESIDENTIAL STATIC PROXIES, I never tried datacentre, so you can give it a shot.
+- Had good success using [chicooked residential proxies](https://chiproxies.com), and ruunning region resi.
 - Running with an actual Instagram Account, will greatly reduced the chance of rate limiting...
 - I ran 5000+ without proxies, and it's running smooth. But I still recommend running proxies.
-- If you are planning monitor more accounts, increase your delay.
+- If you are planning monitor more accounts, increase your delay + add more proxies to avoid getting timeout.
+- TEST YOUR DELAY WITH A LOT OF PROXIES, usually you will only need 1 task per proxies, and you can also run lower delays.
+- MORE PROXIES = LOWER DELAY :) - but you need good proxies
 
 ## Bugs?
 
