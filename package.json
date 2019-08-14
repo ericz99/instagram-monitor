@@ -1,0 +1,36 @@
+{
+  "name": "ig-monitor",
+  "version": "1.0.0",
+  "description": "Instagram Monitor / Scraper w/ Pinger Notification",
+  "scripts": {
+    "start": "nodemon --exec babel-node index.js"
+  },
+  "main": "index.js",
+  "repository": "https://github.com/ericz99/ig-monitor.git",
+  "author": "Eric Zhang <ericzhang128@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "cheerio": "^1.0.0-rc.3",
+    "colors": "^1.3.3",
+    "dateformat": "^3.0.3",
+    "dotenv": "^8.0.0",
+    "esm": "^3.2.25",
+    "mongoose": "^5.6.5",
+    "request": "^2.88.0",
+    "request-promise": "^4.2.4",
+    "tesseractocr": "^1.2.1"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.5.5",
+    "@babel/core": "^7.5.5",
+    "@babel/node": "^7.5.5",
+    "@babel/preset-env": "^7.5.5",
+    "eslint": "^6.0.1",
+    "eslint-config-airbnb": "^17.1.1",
+    "eslint-config-prettier": "^6.0.0",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-prettier": "^3.1.0",
+    "nodemon": "^1.19.1",
+    "prettier": "^1.18.2"
+  }
+}

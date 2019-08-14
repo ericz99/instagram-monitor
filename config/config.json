@@ -1,0 +1,13 @@
+{
+  "mongoUri": "mongodb://localhost/ig-monitor-db",
+  "discord": {
+    "webhook_url": "",
+    "username": "Instagram Monitor",
+    "avatar": "",
+    "footertext": "",
+    "footericon": ""
+  },
+  "pollMS": 5000,
+  "accounts": ["cybersole", "destroyerbots", "testzhi", "offspring"],
+  "keywords": ["restock", "*"]
+}

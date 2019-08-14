@@ -1,0 +1,1 @@
+import recognize from 'tesseractocr';
