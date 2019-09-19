@@ -61,7 +61,7 @@ Features:
 9/18/19
 
 # Added better error handling ✅
-# Added story monitor ✅ (Tested it and it worked)
+# Added story monitor ✅
 
 ```
 
@@ -75,6 +75,11 @@ Features:
 - [ ] Keyword filter
 - [ ] Database Configuration
 - [x] Added better error handling
+
+## Note:
+
+- Still looking into story monitor, and hoping to fix possible bug. Please don't make an issue about this.
+- Stop making issues that isn't a bug/error, anything will be ignored.
 
 ## Tips
 
