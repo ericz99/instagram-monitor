@@ -51,26 +51,37 @@ Features:
 
 ```
 
+## Updates:
+
+```bash
+
+9/18/19
+
+# Added better error handling ✅
+# Added story monitor ✅
+
+```
+
 ## Todo:
 
 - [x] Ability to monitor any instagram accounts
-- [x] Able scrape stories & posts (stories not implemented, but soon...)
+- [x] Able scrape stories & posts
 - [x] Customizable Discord Embeds
 - [x] OCR reader
 - [x] Better way to rotate proxies
 - [ ] Keyword filter
 - [ ] Database Configuration
-- [x] Add more error handling
+- [x] Added better error handling
 
 ## Tips
 
-- I HIGHLY RECOMMEND RUNNING RESIDENTIAL STATIC PROXIES, I never tried datacentre, so you can give it a shot.
-- Had good success using [chicooked residential proxies](https://chiproxies.com), and ruunning region resi.
-- Running with an actual Instagram Account, will greatly reduced the chance of rate limiting...
-- I ran 5000+ without proxies, and it's running smooth. But I still recommend running proxies.
-- If you are planning monitor more accounts, increase your delay + add more proxies to avoid getting timeout.
-- TEST YOUR DELAY WITH A LOT OF PROXIES, usually you will only need 1 task per proxies, and you can also run lower delays.
-- MORE PROXIES = LOWER DELAY :) - but you need good proxies
+- Recommend using proxies, it can be anything but it must be unbanned from instagram.
+- Using more proxies, you can simply lower delay. (Go ahead and test first before setting it way low.)
+
+## Note
+
+- I haven't test the story monitor yet, but it should work. If there's any error then please let me know..
+- I have plans of revamping this monitor and hoping to improve the speed and ocr.
 
 ## Bugs?
 
