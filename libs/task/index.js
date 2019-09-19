@@ -91,13 +91,10 @@ class Task {
     // check there's stories availble
     if (result.length > 0) {
       // scrape the stories
-      const stories = await scrapeStories(result); // [ array of json object ]
+      const stories = await scrapeStories(result[0]); // [ array of json object ]
 
       // get all storyid
       const getIds = stories.map(s => s.story.storyID);
-
-      // only push ids if ids array is empty
-      if (this._storiesID.length === 0) this._storiesID.push(...getIds);
 
       // filter the new ids if new ids doesn't exist in ids array
       let newIds = getIds.filter(id => this._storiesID.indexOf(id) == -1);
@@ -116,8 +113,8 @@ class Task {
         await sendStoryNotify(this._config, newStory[0]);
 
         // check if image exist
-        if (newStory[0].post.displayUrl) {
-          await ocrReader(newPost[0].post.displayUrl);
+        if (newStory[0].story.displayUrl) {
+          await ocrReader(newStory[0].story.displayUrl);
         }
 
         this._log.green('Sent notification!');
