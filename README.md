@@ -61,7 +61,7 @@ Features:
 9/18/19
 
 # Added better error handling ✅
-# Added story monitor ✅
+# Added story monitor ✅ (Tested it and it worked)
 
 ```
 
@@ -80,11 +80,6 @@ Features:
 
 - Recommend using proxies, it can be anything but it must be unbanned from instagram.
 - Using more proxies, you can simply lower delay. (Go ahead and test first before setting it way low.)
-
-## Note
-
-- I haven't test the story monitor yet, but it should work. If there's any error then please let me know..
-- I have plans of revamping this monitor and hoping to improve the speed and ocr.
 
 ## Bugs?
 
