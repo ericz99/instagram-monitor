@@ -89,7 +89,7 @@ class Task {
     // check if stories is available
     const result = await checkForStories(id);
     // check there's stories availble
-    if (result !== null) {
+    if (result.length > 0) {
       // scrape the stories
       const stories = await scrapeStories(result); // [ array of json object ]
 
