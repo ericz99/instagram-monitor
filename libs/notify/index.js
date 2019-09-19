@@ -67,6 +67,10 @@ export const sendStoryNotify = async (
             {
               name: 'isVideo',
               value: metadata.story.isVideo
+            },
+            {
+              name: 'Video Src',
+              value: `[Story Link](${metadata.story.videoSrc})`
             }
           ],
           image: {
