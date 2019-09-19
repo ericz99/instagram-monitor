@@ -203,7 +203,7 @@ export const checkForStories = async id => {
     if (resp.statusCode == 200) {
       const jsonBody = resp.body;
       if (jsonBody['data']['reels_media'].length > 0 && jsonBody['status'] == 'ok') {
-        return jsonBody['data']['reels_media'][0];
+        return jsonBody['data']['reels_media'];
       } else {
         return [];
       }
@@ -253,7 +253,8 @@ export const scrapeStories = async json => {
           ...userData,
           story: {
             storyID: story.id,
-            displayUrl: story.video_resources[0].src,
+            displayUrl: story.display_url,
+            videoSrc: story.video_resources[0].src,
             isVideo,
             timestamp: story.taken_at_timestamp
           }
