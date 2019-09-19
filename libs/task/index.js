@@ -122,6 +122,8 @@ class Task {
 
         this._log.green('Sent notification!');
       }
+    } else if (!result) {
+      await this.restart();
     }
   }
 }
