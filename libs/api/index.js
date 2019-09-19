@@ -205,7 +205,7 @@ export const checkForStories = async id => {
       if (jsonBody['data']['reels_media'].length > 0 && jsonBody['status'] == 'ok') {
         return jsonBody['data']['reels_media'][0];
       } else {
-        return null;
+        return [];
       }
     }
   } catch (e) {
