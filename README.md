@@ -17,6 +17,9 @@ yarn install
 # Run application
 yarn run start
 
+# To update
+git pull
+
 # Add stuff in your config.json
 {
     "mongoUri": "mongodb://localhost/ig-monitor-db",
