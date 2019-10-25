@@ -83,8 +83,8 @@ Features:
 
 ## Tips
 
-- Recommend using proxies, it should be datacentre because I found out resi get ban very easily. (UNLESS you found unbanned resi proxies then sure.)
-- Increasing your proxies pool will strongly avoid proxy timeout + datacentre been doing very good for me.
+- Recommend using proxies, it should be datacenter because I found out resi get ban very easily. (UNLESS you found unbanned resi proxies then sure.)
+- Increasing your proxies pool will strongly avoid proxy timeout + datacenter been doing very good for me.
 - Using more proxies, you can simply lower delay. (Go ahead and test first before setting it way low.)
 
 ## Bugs?
