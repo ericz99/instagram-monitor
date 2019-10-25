@@ -10,7 +10,8 @@ export default async options => {
       'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
     'Accept-Encoding': 'deflate, br',
     'Accept-Language': 'en-US,en;q=0.9',
-    'Cache-Control': 'max-age=0'
+    'Cache-Control': 'max-age=0',
+    'x-forwarded-for': '127.0.0.1'
   };
 
   if (options.headers) {

@@ -11,9 +11,11 @@ class Task {
     this._user = user;
     this._log = logger(user);
     this._ids = [];
-    this._storiesID = [];
     this._intv = null;
     this._intervalCount = 0;
+
+    this._storiesResult = true;
+    this._postsResult = true;
   }
 
   async start() {
@@ -29,9 +31,6 @@ class Task {
         const result = await scrapeUser(this._user, randomProxy);
         // check for result
         if (result) {
-          // start story monitor
-          await this.startStoryMonitor(result);
-
           // get post data
           const data = await scrapeUserData(result);
 
@@ -81,47 +80,7 @@ class Task {
     var that = this;
     setTimeout(function() {
       that.start();
-    }, 5000);
-  }
-
-  async startStoryMonitor(user) {
-    const { id } = user;
-    // check if stories is available
-    const result = await checkForStories(id);
-    // check there's stories availble
-    if (result.length > 0) {
-      // scrape the stories
-      const stories = await scrapeStories(result[0]); // [ array of json object ]
-
-      // get all storyid
-      const getIds = stories.map(s => s.story.storyID);
-
-      // filter the new ids if new ids doesn't exist in ids array
-      let newIds = getIds.filter(id => this._storiesID.indexOf(id) == -1);
-
-      // if new is available
-      if (newIds.length > 0) {
-        // get newids post data
-        const newStory = stories.filter(s => newIds.indexOf(s.story.storyID) > -1);
-
-        this._log.yellow('New story found!');
-
-        // concat array together
-        this._storiesID = [...this._storiesID, ...newIds];
-
-        // notify user webhook
-        await sendStoryNotify(this._config, newStory[0]);
-
-        // check if image exist
-        if (newStory[0].story.displayUrl) {
-          await ocrReader(newStory[0].story.displayUrl);
-        }
-
-        this._log.green('Sent notification!');
-      }
-    } else if (!result) {
-      await this.restart();
-    }
+    }, 1000);
   }
 }
 

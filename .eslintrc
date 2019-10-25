@@ -1,5 +1,5 @@
 {
-  "extends": ["airbnb", "prettier"],
+  "extends": ["airbnb", "prettier", "plugin:node/recommended"],
   "plugins": ["prettier"],
   "rules": {
     "prettier/prettier": ["error"],
@@ -13,5 +13,8 @@
     "no-param-reassign": "off",
     "camelcase": "warn",
     "consistent-return": "off"
+  },
+  "parserOptions": {
+    "sourceType": "module"
   }
 }

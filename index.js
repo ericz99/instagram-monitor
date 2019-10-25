@@ -25,14 +25,24 @@ let tasks = [];
         );
 
   console.log(`Loaded ${proxies.length} proxies!`);
-  const authenticated = await loginUser(process.env.IG_USER, process.env.IG_PASS);
+  // const authenticated = await loginUser(process.env.IG_USER, process.env.IG_PASS);
 
-  if (authenticated) {
-    console.log('Successfully logged into account!');
-
-    for (let i = 0; i < config.accounts.length; i++) {
-      tasks.push(new Task(config, config.accounts[i], proxies));
-      tasks[i].start();
-    }
+  for (let i = 0; i < config.accounts.length; i++) {
+    tasks.push(new Task(config, config.accounts[i], proxies));
+    tasks[i].start();
   }
+
+  // if (authenticated) {
+  //   console.log('Successfully logged into account!');
+
+  //   for (let i = 0; i < config.accounts.length; i++) {
+  //     tasks.push(new Task(config, config.accounts[i], proxies));
+  //     tasks[i].start();
+  //   }
+  // } else {
+  //   console.log(
+  //     'Failed to authenticate, most likely rate limit. Please wait for at least 5 min to start back monitor!'
+  //   );
+  //   process.exit(1);
+  // }
 })();
