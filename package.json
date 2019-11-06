@@ -15,7 +15,7 @@
     "dateformat": "^3.0.3",
     "dotenv": "^8.0.0",
     "esm": "^3.2.25",
-    "mongoose": "^5.6.5",
+    "mongoose": "^5.7.5",
     "request": "^2.88.0",
     "request-promise": "^4.2.4",
     "tesseract.js": "^2.0.0-alpha.13"
